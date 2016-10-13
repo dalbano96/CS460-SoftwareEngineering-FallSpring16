@@ -1,13 +1,7 @@
 1) https://www.youtube.com/watch?v=MsMaiHqkKkQ : interpreter tutorial install, WAMP Server for websites
 
 
-
 OS > wamp64 > www , where to place files  to test login verfication setup
-
-
-
-
-
 
 
 2) https://www.youtube.com/watch?v=t43WguoSFmM : to import database.sql file to MySQL using PHPMyAdmin tutorial
@@ -35,8 +29,6 @@ placing files in C:\wamp\www directory to open in URL http://localhost/login.php
 intergrate this using id and pass, Register will open account creation, http://codepen.io/code_dependant/pen/Kkeyb 
 
   
-
-
 
 =========================================================================================
 https://www.youtube.com/watch?v=1kJWxm4_olk
