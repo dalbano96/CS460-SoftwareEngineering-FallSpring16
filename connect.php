@@ -1,10 +1,10 @@
 <?php
 
 
-$host = '127.0.0.1';  // ip or domain name default
-$username = "root";  // mysql username default
-$password = "";  // password default for mysql
-$database = "student";  // student database
+$host = 'localhost';  // ip or domain name default
+$username = 'root';  // mysql username default
+$password = 'raspberry';  // password default for mysql
+$database = 'student';  // student database
 
 // http://php.net/manual/en/function.mysqli-connect.php tutorial on how to connect to 
 // my sql using php

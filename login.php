@@ -8,7 +8,7 @@ $loggedIn = false;
 // check if user have inputed email & password
 if(!empty($_POST['email']) && !empty($_POST['password'])) {
 
-  // $query = "SELECT * FROM users WHERE email=? AND password=? LIMIT 1";
+   $query = "SELECT * FROM users WHERE email=? AND password=? LIMIT 1";
   
   // Initializes a statement and returns an object for use with mysqli_stmt_prepare
   $stmt = mysqli_stmt_init($link);
@@ -61,20 +61,25 @@ mysqli_close($link);
     <meta charset="utf-8">
     <title>Login form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Bootstrap_Folder/css/bootstrap.css">
 </head>
 <body>
+<div class="container">
+	<h2 class="form-signin-heading">Welcome to the Application Portal </h2>	
   <form class="form-signin" id="login" role="form" method="POST" action="login.php">
     <?php if ($loggedIn): ?>
-      <h4>Loggin Successfull <?php echo $user['email']; ?> | <?php echo $user['name']; ?></h4>
+      <!--<h4>Login Successfull <?php echo $user['email']; ?> | <?php echo $user['name']; ?></h4> -->
+	<?php header("Location:index.html")		?>
     <?php elseif(isset($isEmailPasswordCorrect) && $isEmailPasswordCorrect === false): ?>
-      <h4>Loggin UnSucessfull</h4>
+      <h4>Login Unsuccessful</h4>
     <?php else: ?>
-      email: <input type="email" name="email"> 
+      <input type="email" name="email" class="form-control" placeholder="Email Address"> 
       <br />
-      password: <input type="password" name="password">
+      <input type="password" name="password"class="form-control" placeholder="password">
       <br />
-      <button type="submit">submit</button>
+      <button type="submit" class="btn btn-lg btn-primary btn-block">submit</button>
     <?php endif; ?>
   </form>
+</div>
 </body>
 </html>

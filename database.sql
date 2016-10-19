@@ -6,9 +6,9 @@
 --
 -- Database: `student`
 --
-
+CREATE DATABASE student;
+USE student;
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `users`
 -- from registration snippet zip file version
