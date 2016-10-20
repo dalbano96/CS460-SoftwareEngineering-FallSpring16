@@ -93,11 +93,19 @@ mysqli_close($link);
 <body>
   <form class="form-signin" id="login" role="form" method="POST" action="register.php">
     <?php if ($registered): ?>
-      <h4>Registered Successfull</h4>
+	<?php
+		echo '<script language="javascript">';
+		echo 'alert("Account successfully registered! Please login")';
+		echo '</script>';
+		header("Location:login.php"); 
+	?>
+
     <?php elseif($alreadyRegistered): ?>
-      <h4>Registered UnSucessfull (already registered)</h4>
+      <h4>Account already registered</h4>
+
     <?php elseif($passwordDoesntMatch): ?>
-      <h4>Passwords does not match</h4>
+      <h4>Passwords do not match</h4>
+
     <?php else: ?>
       name: <input type="text" name="name"> 
       <br />
