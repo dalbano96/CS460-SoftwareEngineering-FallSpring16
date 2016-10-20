@@ -87,10 +87,13 @@ mysqli_close($link);
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Login form</title>
+    <title>Registration form</title>
+	<link rel="stylesheet" href="Bootstrap_Folder/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<div class="container">
+	<h2 class="form-signin-heading">Registration Portal</h2> 
   <form class="form-signin" id="login" role="form" method="POST" action="register.php">
     <?php if ($registered): ?>
 	<?php
@@ -107,16 +110,17 @@ mysqli_close($link);
       <h4>Passwords do not match</h4>
 
     <?php else: ?>
-      name: <input type="text" name="name"> 
+       <input type="name" name="name" class="form-control" placeholder="Enter Name"> 
       <br />
-      email: <input type="email" name="email"> 
+      <input type="email" name="email" class="form-control" placeholder="Enter Email Address"> 
       <br />
-      password: <input type="password" name="password">
+      <input type="password" name="password" class="form-control" placeholder="Enter Password">
       <br />
-      password confirm: <input type="password" name="passwordconfirmation">
+      <input type="password" name="passwordconfirmation" class="form-control" placeholder="Enter Password">
       <br />
-      <button type="submit">submit</button>
+      <button type="submit" class="btn btn-lg btn-primary btn-block">submit</button>
     <?php endif; ?>
   </form>
+</div>
 </body>
 </html>
