@@ -39,7 +39,9 @@ if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password'
       // http://php.net/manual/en/mysqli-result.num-rows.php
       $matchUsersCount = mysqli_num_rows($result);
   
-      $isEmailPasswordCorrect = $matchUsersCount > 0 ? true : false;
+
+	$isEmailPasswordCorrect = $matchUsersCount > 0 ? true : false;
+
       if($isEmailPasswordCorrect) {
         // Fetch a result row as an associative
         // http://php.net/manual/en/mysqli-result.fetch-array.php
