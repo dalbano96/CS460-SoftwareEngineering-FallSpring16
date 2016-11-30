@@ -10,4 +10,4 @@ IP_ADDR='132.160.49.90 -p 2229'
 #	*) echo "Error, quiting now" ;;
 #esac
 
-ssh $USER@$IP_ADDR
+ssh -X $USER@$IP_ADDR
