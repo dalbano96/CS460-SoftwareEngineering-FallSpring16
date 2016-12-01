@@ -6,13 +6,16 @@ require_once 'connect.php';
 $registered = false;
 $alreadyRegistered = false;
 $passwordDoesntMatch = false;
+$invalidCsrfToken = false;
 
 // check if user have inputed email & password
 if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['passwordconfirmation'])) {
-  if($_POST['password'] !== $_POST['passwordconfirmation']) {
+  if($_POST['token'] != $token){ 
+    $invalidCsrfToken = true;
+  } else if($_POST['password'] !== $_POST['passwordconfirmation']) {
     $passwordDoesntMatch = true;
   } else {
-    $query = "SELECT * FROM users WHERE email=? AND password=? LIMIT 1";
+    $query = "SELECT * FROM users WHERE email=? LIMIT 1";
     
     // Initializes a statement and returns an object for use with mysqli_stmt_prepare
     $stmt = mysqli_stmt_init($link);
@@ -25,7 +28,7 @@ if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password'
       // using this function will prevent SQL injection
       // http://php.net/manual/en/mysqli-stmt.bind-param.php
       // "s" corresponding variable has type string
-      mysqli_stmt_bind_param($stmt, "ss", $_POST['email'], $_POST['password']);
+      mysqli_stmt_bind_param($stmt, "s", $_POST['email']);
   
       // Executes a prepared Query
       // http://php.net/manual/en/mysqli-stmt.execute.php
@@ -39,9 +42,7 @@ if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password'
       // http://php.net/manual/en/mysqli-result.num-rows.php
       $matchUsersCount = mysqli_num_rows($result);
   
-
-	$isEmailPasswordCorrect = $matchUsersCount > 0 ? true : false;
-
+      $isEmailPasswordCorrect = $matchUsersCount > 0 ? true : false;
       if($isEmailPasswordCorrect) {
         // Fetch a result row as an associative
         // http://php.net/manual/en/mysqli-result.fetch-array.php
@@ -56,11 +57,16 @@ if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password'
         if(!mysqli_stmt_prepare($stmt, $query)) {
           echo "Failed to prepare statement" . PHP_EOL;
         } else {
+          // Hash password 
+          // creates a new password hash using a strong one-way hashing algorithm. password_hash() is compatible with crypt(). 
+          // Therefore, password hashes created by crypt() can be used with password_hash().
+          // http://php.net/manual/en/function.password-hash.php
+          $password = password_hash($_POST['password'], PASSWORD_BCRYPT, array('cost' => 10));
           // Binds variables to a prepared statement as parameters
           // using this function will prevent SQL injection
           // http://php.net/manual/en/mysqli-stmt.bind-param.php
           // "s" corresponding variable has type string
-          mysqli_stmt_bind_param($stmt, "sss", $_POST['name'], $_POST['email'], $_POST['password']);
+          mysqli_stmt_bind_param($stmt, "sss", $_POST['name'], $_POST['email'], $password);
       
           // Executes a prepared Query
           // http://php.net/manual/en/mysqli-stmt.execute.php
@@ -83,8 +89,8 @@ if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password'
 // http://php.net/manual/en/mysqli.close.php
 mysqli_close($link);
 
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,6 +103,8 @@ mysqli_close($link);
 <div class="container">
 	<h2 class="form-signin-heading">Registration Portal</h2> 
   <form class="form-signin" id="login" role="form" method="POST" action="register.php">
+    <!-- CSRF token -->
+    <input type="hidden" name="token" value="<?php echo $token; ?>" />
     <?php if ($registered): ?>
 	<?php
 		echo '<script language="javascript">';
@@ -111,6 +119,8 @@ mysqli_close($link);
     <?php elseif($passwordDoesntMatch): ?>
       <h4>Passwords do not match</h4>
 
+	<?php elseif($invalidCsrfToken): ?>
+      <h4 class="text-danger">Invalid CSRF token, please do reload the page and try again.</h4>
     <?php else: ?>
        <input type="name" name="name" class="form-control" placeholder="Enter Name"> 
       <br />
