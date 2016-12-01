@@ -10,16 +10,16 @@ when('/', {
   template:'<h1>Welcome to my home page</h1>',
   controller:'MainCtrl'
   }).
-  when('/firstPage', {
-  templateUrl:'firstPage.html',
+  when('/welcome', {
+  templateUrl:'welcome.html',
   controller:'MainCtrl'
   }).
-  when('/secondPage', {
-  templateUrl:'secondPage.html',
+  when('/checkdemo', {
+  templateUrl:'checkdemo.html',
   controller:'MainCtrl'
   }).
-  when('/thirdPage', {
-  templateUrl:'thirdPage.html',
+  when('/checkList', {
+  templateUrl:'checkList.html',
   controller:'MainCtrl'
   }).
   when('/errorPage', {
