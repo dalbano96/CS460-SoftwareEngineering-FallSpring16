@@ -83,8 +83,8 @@ mysqli_close($link);
     <!-- CSRF token -->
     <input type="hidden" name="token" value="<?php echo $token; ?>" />
     <?php if ($loggedIn): ?>
-      <!--<h4>Login Successfull <?php echo $user['email']; ?> | <?php echo $user['name']; ?></h4> -->
-	<?php header("Location:index.html")		?>
+      <!--<h4>Login Successful <?php echo $user['email']; ?> | <?php echo $user['name']; ?></h4> -->
+	<?php header("Location:/home/index.html")		?>
     <?php elseif(isset($isEmailPasswordCorrect) && $isEmailPasswordCorrect === false): ?>
       <h4>Login Unsuccessful</h4>
     <?php elseif($invalidCsrfToken): ?>
