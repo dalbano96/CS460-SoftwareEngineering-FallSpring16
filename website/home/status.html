@@ -18,9 +18,12 @@
 		<div class="page-header">
 			<h1> Check your status </h1>
 		</div>	
-		<div class="col-md-6" ng-repeat="x in programs">
-			<p> Below is your application requirements </p>
-			<p> {{ x.name }} </p>	
+		<div class="jumbotron">
+			<!-- List program  -->
+			<div class="col-md-6" ng-repeat="x in programs">
+				<p> Below is your application requirements </p>
+				<p> {{ x.name }} </p>	
+			</div>
 		</div>
 	</div>
 </div>
