@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-US-Compatible" content="IE=edge">
+	<meta name="viewport" content="width = device-width, initial-scale = 1">
+	<title> Current Status </title>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+</head>
+
+<body ng-app="app">
+		
+<div class="main" ng-controller="programCtrl">
+	<h1> {{ title }} </h1>
+	<div class="container">
+		<div class="page-header">
+			<h1> Check your status </h1>
+		</div>	
+		<div class="col-md-6" ng-repeat="x in programs">
+			<p> Below is your application requirements </p>
+			<p> {{ x.name }} </p>	
+		</div>
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="../app/status/statusController.js"></script>
+<script src="../app/controllers/app.js"></script>
+
+</body>
+</html>
