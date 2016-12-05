@@ -13,17 +13,17 @@
 <body ng-app="app">
 		
 <div class="main" ng-controller="programCtrl">
-	<h1> {{ title }} </h1>
 	<div class="container">
 		<div class="page-header">
 			<h1> Check your status </h1>
 		</div>	
+		<h2> {{ title }} </h2>	
 		<div class="jumbotron">
 			<!-- List program  -->
-			<div class="col-md-6" ng-repeat="x in programs">
-				<p> Below is your application requirements </p>
-				<p> {{ x.name }} </p>	
-			</div>
+			<h2> Below is your application requirements </h2>
+		</div> <!-- end of jumbotron -->
+		<div class="col-md-6" ng-repeat="x in requirements">
+			<p> {{ x.name }} </p>	
 		</div>
 	</div>
 </div>

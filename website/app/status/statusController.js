@@ -1,15 +1,13 @@
 var app=angular.module('app', []);
 app.controller('programCtrl', ['$scope', function($scope) {
-	$scope.title='Title';
+	// Display the graduate program title
+	$scope.title='Graduate Program';
 
-	$scope.programs=[
-	{
-		name: 'testing1'
-	},
-
-	{
-		name: 'testing2'
-	}
-
+	// Display the list of requirements
+	$scope.requirements=[
+		{ name: 'requirement1' },
+		{ name: 'requirement2' },
+		{ name: 'requirement3' },
+		{ name: 'requirement4' },
 	];
 }]);	
