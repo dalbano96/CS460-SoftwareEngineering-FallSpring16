@@ -1,3 +1,8 @@
+/*
+	File: statusController.js
+	Retrieve graduate program and list of requirements from DB
+*/
+
 var app=angular.module('app', []);
 app.controller('programCtrl', ['$scope', function($scope) {
 	// Display the graduate program title
@@ -5,9 +10,9 @@ app.controller('programCtrl', ['$scope', function($scope) {
 
 	// Display the list of requirements
 	$scope.requirements=[
-		{ name: 'requirement1' },
-		{ name: 'requirement2' },
-		{ name: 'requirement3' },
-		{ name: 'requirement4' },
+		{ name: 'requirement1', desc: 'blah' },
+		{ name: 'requirement2', desc: 'hello' },
+		{ name: 'requirement3', desc: 'world' },
+		{ name: 'requirement4', desc: 'Hey Jim' },
 	];
 }]);	
