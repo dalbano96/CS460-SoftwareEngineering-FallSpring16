@@ -6,7 +6,7 @@
 var app=angular.module('app', []);
 app.controller('programCtrl', ['$scope', function($scope) {
 	// Display the graduate program title
-	$scope.title='Graduate Program';
+	$scope.title = 'Undergraduate Program';
 
 	// Display the list of requirements
 	$scope.requirements=[

@@ -17,13 +17,7 @@
 
 <body ng-app="app">
 		
-<div class="main" ng-controller="programCtrl"
-ng-init="userInit(
-	'<?php 
-		include '../app/status/testSendParameter.php'; 
-		echo $data; 
-	?>')">
-
+<div class="main" ng-controller="programCtrl">
 	<div class="container">
 		<div class="page-header">
 			<h1> Check your status </h1>

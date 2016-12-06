@@ -1,4 +1,4 @@
 <?php
-	include 'app/status/testSendParameter.php';
-	echo $data;
+	include 'app/status/getProgram.php';
+	//echo $results;
 ?>
