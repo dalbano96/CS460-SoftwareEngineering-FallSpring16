@@ -1,3 +1,8 @@
+<!--
+	File: status.php
+	Shows status of application
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +17,19 @@
 
 <body ng-app="app">
 		
-<div class="main" ng-controller="programCtrl">
+<div class="main" ng-controller="programCtrl"
+ng-init="userInit(
+	'<?php 
+		include '../app/status/testSendParameter.php'; 
+		echo $data; 
+	?>')">
+
 	<div class="container">
 		<div class="page-header">
 			<h1> Check your status </h1>
 		</div>	
 		<h2> {{ title }} </h2>	
+		<h2> {{ data }} </h2>
 		<div class="jumbotron">
 			<!-- List program  -->
 			<h2> Below is your application requirements </h2>

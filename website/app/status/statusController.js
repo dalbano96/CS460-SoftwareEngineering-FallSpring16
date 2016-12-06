@@ -15,4 +15,9 @@ app.controller('programCtrl', ['$scope', function($scope) {
 		{ name: 'requirement3', desc: 'world' },
 		{ name: 'requirement4', desc: 'Hey Jim' },
 	];
+	
+	// Recieve data from php
+	$scope.userInit = function($data) {
+		$scope.data = $data;
+	};
 }]);	
