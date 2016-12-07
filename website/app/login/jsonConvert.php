@@ -1,3 +1,8 @@
+<!--
+	File: jsonConvert.php
+	Converts MySQL database to JSON format
+-->
+
 <?php
 	// Connect to MySQL db
 	require_once 'connect.php';

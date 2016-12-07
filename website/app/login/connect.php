@@ -1,6 +1,8 @@
+<!-- 
+	File: connect.php
+	Contains connection credentials for database
+-->
 <?php
-
-
 $host = "localhost";  // ip or domain name default
 $username = "root";  // mysql username default
 $password = "raspberry";  // password default for mysql

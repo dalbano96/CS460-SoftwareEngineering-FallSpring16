@@ -1,4 +1,9 @@
+<!--
+	File: getProgram.php
+	Retrieves grad program from database 
+-->
 <?php
+	// Connect to database
 	require '../login/connect.php';
 
 /* 

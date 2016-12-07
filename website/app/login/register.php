@@ -1,3 +1,7 @@
+<!--
+	File: register.php
+	User registers an account with the website
+-->
 <?php     
 
 // connect to database

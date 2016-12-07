@@ -1,3 +1,7 @@
+<!--
+	File: login.php
+	Page where user logs into website 
+-->
 <?php     
 
 // connect to database
