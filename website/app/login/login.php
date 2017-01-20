@@ -3,6 +3,7 @@
 	Page where user logs into website 
 -->
 <?php     
+	session_start();
 
 // connect to database
 require_once 'connect.php';
@@ -57,12 +58,9 @@ if(!empty($_POST['email']) && !empty($_POST['password'])) {
           $loggedIn = true;
 					
 					// Authorizes that user is logged in
-					session_start();
-					include("../../home/index.php");
-					$user = authorizedUsed($user, $password);
-					if ($user) {
-						$_SESSION["user_data"] = $user;
-					}
+					#include("../../home/index.php");
+					$_SESSION['valid'] = true;
+					$_SESSION['time'] = time();
         }
       }
     }

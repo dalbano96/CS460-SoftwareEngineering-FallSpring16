@@ -6,9 +6,9 @@
 <?php
 	// Checks if user is logged in
 	session_start();
-	if (!isset(!$_SESSION["user_data"])) {
-		header("Location: unauthorized_error.php");
-	}
+	if (!isset($_SESSION['valid'])) {
+	 	header("Location: unauthorized_error.php");
+	 }
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +84,7 @@
 				</ul>
 				<!-- right align -->
 				<ul class="nav navbar-right">
-					<li><a href="../index.html">Logout</a></li>
+					<li><a href="../../app/login/logout.php">Logout</a></li>
 				</ul>
 		</div> <!--end mainNavBar-->
 	</nav> <!--end navbar-->
