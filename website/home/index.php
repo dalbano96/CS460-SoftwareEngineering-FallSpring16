@@ -1,7 +1,15 @@
 <!--
-	File: index.html
+	File: index.php
 	Index page for home directory
 -->
+
+<?php
+	// Checks if user is logged in
+	session_start();
+	if (!isset(!$_SESSION["user_data"])) {
+		header("Location: unauthorized_error.php");
+	}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -55,6 +55,14 @@ if(!empty($_POST['email']) && !empty($_POST['password'])) {
 
         if($isEmailPasswordCorrect) {
           $loggedIn = true;
+					
+					// Authorizes that user is logged in
+					session_start();
+					include("../../home/index.php");
+					$user = authorizedUsed($user, $password);
+					if ($user) {
+						$_SESSION["user_data"] = $user;
+					}
         }
       }
     }
@@ -88,7 +96,7 @@ mysqli_close($link);
     <input type="hidden" name="token" value="<?php echo $token; ?>" />
     <?php if ($loggedIn): ?>
       <!--<h4>Login Successful <?php echo $user['email']; ?> | <?php echo $user['name']; ?></h4> -->
-	<?php header("Location:../../home/index.html")		?>
+	<?php header("Location:../../home/index.php")		?>
     <?php elseif(isset($isEmailPasswordCorrect) && $isEmailPasswordCorrect === false): ?>
       <h4>Login Unsuccessful</h4>
     <?php elseif($invalidCsrfToken): ?>
