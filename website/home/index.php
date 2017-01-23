@@ -7,7 +7,7 @@
 	// Checks if user is logged in
 	session_start();
 	if (!isset($_SESSION['valid'])) {
-	 	header("Location: unauthorized_error.php");
+	 	header("Location: ../app/unauthorized_error.php");
 	 }
 ?>
 
