@@ -15,8 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::auth();
-
 Route::get('/home', 'HomeController@index');
 
-Route::get('auth/logout', 'Auth\AuthController@logout');
+Route::auth();
+
+/* Route::get('/error', function() {
+	return view('/errors/503');
+});
+*/
+
+//Route::get('/logout', 'Auth\AuthController@getLogout');
+
