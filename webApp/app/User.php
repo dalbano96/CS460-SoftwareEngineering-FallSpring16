@@ -24,11 +24,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+		// Lists each user's program
 		public function program() {
 			return $this->belongsTo('App\Program');
 		}
 		
+		// Lists requirements for each user depending on program. Note to self: International student requirements must be handled
 		public function requirements() {
-			return $this->belongsToMany('App\Requirement');
+			return $this->belongsToMany('App\Requirement', 'user_requirement', 'user_id', 'requirement_id');
 		}
 }
