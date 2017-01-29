@@ -10,4 +10,8 @@ class Program extends Model
 		public function department() {
 			return $this->belongsTo('App\Department');
 		}
+
+		public function requirements() {
+			return $this->belongsToMany('App\Requirement');
+		}
 }

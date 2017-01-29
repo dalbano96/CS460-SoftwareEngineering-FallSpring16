@@ -41,4 +41,38 @@ Route::get('/programs', function() {
 	}
 });
 
+// Lists the requirements for each program, junction table
+Route::get('/programs/requirements', function() {
+	$programs = App\Program::all();
+	foreach($programs as $program) {
+		echo $program->name . "<br />";
+		echo "<ul>";
+		foreach($program->requirements as $requirement) {
+			echo "<li>" . $requirement->name . "</li>";
+		}
+		echo "</ul>";
+	}
+});
+
+// Lists the requirements for each user based on program, junction table
+Route::get('/users/checklist', function() {
+	$users = App\User::all();
+	foreach($users as $user) {
+		echo $user->name . "<br />";
+		echo "<ul>";
+		foreach($user->requirements as $requirement) {
+			echo "<li>" . $requirement->name . "</li>";
+		}
+		echo "</ul>";
+	}
+});
+
+// Lists each user and his/her program
+Route::get('/users', function() {
+	$users = App\User::all();
+	foreach($users as $user) {
+		echo $user->name . " Program: " . $user->program->name  . "<br />";
+	}
+});
+
 Route::auth();
