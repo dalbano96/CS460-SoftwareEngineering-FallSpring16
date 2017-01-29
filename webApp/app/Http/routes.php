@@ -37,7 +37,7 @@ Route::get('/requirements', function() {
 Route::get('/programs', function() {
 	$programs = App\Program::all();
 	foreach($programs as $program){
-		echo $program->name . "<br />";
+		echo $program->name . " Department: " . $program->department->name . "<br />";
 	}
 });
 
