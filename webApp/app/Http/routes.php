@@ -17,12 +17,8 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index');
 
-Route::auth();
-
-/* Route::get('/error', function() {
-	return view('/errors/503');
+Route::get('/checklist', function() {
+	return view('checklist');
 });
-*/
 
-//Route::get('/logout', 'Auth\AuthController@getLogout');
-
+Route::auth();
