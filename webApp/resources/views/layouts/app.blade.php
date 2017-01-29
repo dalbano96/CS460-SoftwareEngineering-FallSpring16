@@ -39,7 +39,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     Project Eupheus
                 </a>
             </div>
@@ -47,7 +47,19 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+
+								<!-- Check if user is logged in -->
+								@if (Auth::guest())
+										<li><a href="#">About</a></li>
+										<li><a href="#">Support</a></li>
+										<li><a href="#">Contact Us</a></li>
+								
+								@else
+										<li><a href="#">About</a></li>
+                    <li><a href="{{ url('/users/checklist') }}">Application Status</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Contact Us</a></li>
+								@endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
