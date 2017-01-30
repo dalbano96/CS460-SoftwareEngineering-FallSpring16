@@ -39,7 +39,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     Project Eupheus
                 </a>
             </div>
@@ -50,12 +50,12 @@
 
 								<!-- Check if user is logged in -->
 								@if (Auth::guest())
-										<li><a href="#">About</a></li>
+										<li><a href="/home">Dashboard</a></li> <!-- Alisa home.blade.php -->
 										<li><a href="#">Support</a></li>
 										<li><a href="#">Contact Us</a></li>
 								
 								@else
-										<li><a href="#">About</a></li>
+										<li><a href="/home">Dashboard</a></li>
                     <li><a href="{{ url('/users/checklist') }}">Application Status</a></li>
                     <li><a href="#">Support</a></li>
                     <li><a href="#">Contact Us</a></li>

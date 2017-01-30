@@ -4,7 +4,9 @@
 
 @section('content')
 <div class="jumbotron">
-	@foreach($departments as $item)
-		<h2>{{ $item->department_name }}</h2>
+	<ul>
+	@foreach($requirements->name as $requirement)
+		echo <li>{{ $requirement }}</li>
+	</ul>
 </div>
 @endsection

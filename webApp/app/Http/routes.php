@@ -11,12 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('/auth/login');
-});
-
-Route::get('/home', 'HomeController@index');
-
 // Displays all of the departments
 Route::get('/departments', function() {
 	$departments = App\Department::all();
@@ -55,7 +49,7 @@ Route::get('/programs/requirements', function() {
 });
 
 // Lists the requirements for each user based on program, junction table
-Route::get('/users/checklist', function() {
+/* Route::get('/users/checklist', function() {
 	$users = App\User::all();
 	foreach($users as $user) {
 		echo $user->name . "<br />";
@@ -65,7 +59,7 @@ Route::get('/users/checklist', function() {
 		}
 		echo "</ul>";
 	}
-});
+}); */
 
 // Lists each user and his/her program
 Route::get('/users', function() {
@@ -75,4 +69,19 @@ Route::get('/users', function() {
 	}
 });
 
-Route::auth();
+// Creates a session for routes in group
+Route::group(['middleware' => 'web'], function() {
+	// Root directory
+	Route::get('/', function() {
+		return view('welcome');
+	});
+
+	// Returns homepage for logged in users. Blocks access for guest users
+	Route::get('/home', 'HomeController@index');
+
+	// Show user profile, URL: /user/someID
+	Route::get('/user/{id}', 'UserController@showProfile');
+
+	Route::auth();
+});
+
