@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 use App\Http\Requests;
 use App\User as User;
@@ -14,13 +16,10 @@ class UserController extends Controller
 			$this->middleware('auth');
 		} 
 
-		// Direct to user's page (needs to be created)
-		public function index() {
-			return view('user');
-		}
-
 		// Sends single user information to view userProfile
-		public function showProfile($id) {
-			return view('userProfile', ['user' => User::findORFail($id)]);
+		public function showProfile() {
+			if(Auth::check() && Auth::user()->id) {
+				return view('userProfile')->with(['user' => $user]);
+			}
 		}
 }

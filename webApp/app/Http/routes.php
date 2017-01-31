@@ -80,7 +80,7 @@ Route::group(['middleware' => 'web'], function() {
 	Route::get('/home', 'HomeController@index');
 
 	// Show user profile, URL: /user/someID
-	Route::get('/user/{id}', 'UserController@showProfile');
+	Route::get('/user/profile/view', 'UserController');
 
 	Route::auth();
 });
