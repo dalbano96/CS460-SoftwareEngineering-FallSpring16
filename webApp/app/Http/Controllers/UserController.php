@@ -17,9 +17,13 @@ class UserController extends Controller
 		} 
 
 		// Sends single user information to view userProfile
-		public function showProfile() {
+		/* public function showProfile() {
 			if(Auth::check() && Auth::user()->id) {
 				return view('userProfile')->with(['user' => $user]);
 			}
+		} */
+
+		public function getId($id) {
+			$user = DB::table('users')->where('id','=',$id);
 		}
 }
