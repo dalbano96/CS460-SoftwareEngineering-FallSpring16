@@ -24,6 +24,7 @@ class UserController extends Controller
 		} */
 
 		public function getId($id) {
-			$user = DB::table('users')->where('id','=',$id);
+			$user = User::find($id);
+			return view('userProfile')->with(['user' => $user]);
 		}
 }
