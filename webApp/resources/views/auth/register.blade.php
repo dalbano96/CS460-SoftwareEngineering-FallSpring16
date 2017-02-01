@@ -68,6 +68,28 @@
                             </div>
                         </div>
 
+
+												<!-- Program Select -->
+												 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Select Program</label>
+
+                            <div class="col-md-6">
+															<select name="program_id">
+																<option disabled selected value>Select Program</option>
+																<option value="3">Master of Arts in Counseling Psychology</option>
+																<option value="4">Doctor of Nursing Practice</option>
+																<option value="5">Teaching MAT</option>
+																<option value="6">Master of Education</option>
+																<option value="7">MA Heritage Management</option>
+																<option value="8">MS Environmental Science</option>
+																<option value="9">Master of Hawaiian Language</option>
+																<option value="10">MA Indigenous Language and Culture</option>
+																<option value="11">PhD Hawaiian Indigenous Language</option>
+																<option value="12">Kahuawaiola Indigenous Teacher Education</option>	
+															</select>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
