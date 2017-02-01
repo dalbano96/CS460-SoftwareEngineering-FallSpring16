@@ -49,7 +49,7 @@ Route::get('/programs/requirements', function() {
 });
 
 // Lists the requirements for each user based on program, junction table
-/* Route::get('/users/checklist', function() {
+Route::get('/users/checklist', function() {
 	$users = App\User::all();
 	foreach($users as $user) {
 		echo $user->name . "<br />";
@@ -59,7 +59,7 @@ Route::get('/programs/requirements', function() {
 		}
 		echo "</ul>";
 	}
-}); */
+});
 
 // Lists each user and his/her program
 Route::get('/users', function() {
@@ -79,8 +79,8 @@ Route::group(['middleware' => 'web'], function() {
 	// Returns homepage for logged in users. Blocks access for guest users
 	Route::get('/home', 'HomeController@index');
 
-	// Show user profile, URL: /user/someID
-	Route::get('/user/profile/view/{id}', array('as'=>'RouteGetId', 'uses'=>'UserController@getId'));
+	// Show user profile, URL: /user/view/profile
+	Route::get('/user/profile/{id}', 'UserController@showProfile');
 
 	Route::auth();
 });

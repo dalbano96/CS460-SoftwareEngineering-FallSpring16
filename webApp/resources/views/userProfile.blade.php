@@ -8,6 +8,14 @@
 		<h1>Profile</h1>
 		<h2>{{ $user->name }}</h2>
 		<h2>{{ $user->program->name }}</h2>
+		<h2>{{ $user->program->department->name }}</h2>
+
+		<ul>
+		@foreach($user->requirements as $requirement)
+		<li>{{ $requirement->name }}</li>
+		</ul>
+		@endforeach
+	
 	</div>
 </div>
 @endsection

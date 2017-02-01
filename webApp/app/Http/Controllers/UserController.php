@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Http\Requests;
 use App\User as User;
 use App\Requirement as Requirement;
+use App\Department as Department;
+use App\User_Requirement as User_Requirement;
 
 class UserController extends Controller
 {
@@ -23,8 +25,8 @@ class UserController extends Controller
 			}
 		} */
 
-		public function getId($id) {
+		public function showProfile($id) {
 			$user = User::find($id);
-			return view('userProfile')->with(['user' => $user]);
+			return view('userProfile', array(	'user'=>$user));
 		}
 }

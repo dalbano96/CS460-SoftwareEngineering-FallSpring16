@@ -29,7 +29,7 @@ class User extends Authenticatable
 			return $this->belongsTo('App\Program');
 		}
 		
-		// Lists requirements for each user depending on program. Note to self: International student requirements must be handled
+		// Lists requirements for each user depending on program. Note to self: International student requirements must be handled. Discrete statement
 		public function requirements() {
 			return $this->belongsToMany('App\Requirement', 'user_requirement', 'user_id', 'requirement_id');
 		}
