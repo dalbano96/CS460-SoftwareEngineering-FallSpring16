@@ -72,6 +72,8 @@ Route::get('/users/checklist', function() {
 // Shows all users
 Route::get('/users', 'UserController@index');
 
+Route::auth();
+
 // Creates a session for routes in group
 Route::group(['middleware' => 'web'], function() {
 	// Root directory
@@ -87,7 +89,5 @@ Route::group(['middleware' => 'web'], function() {
 
 	// Shows all users
 	Route::get('/users', 'UserController@index');
-
-	Route::auth();
 });
 

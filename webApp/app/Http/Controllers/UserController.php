@@ -29,11 +29,13 @@ class UserController extends Controller
 			}
 		} */
 
+		// Show all users
 		public function index() {
 			$users = User::all();
 			return view('admin/index', array('users'=>$users));
 		}
 
+		// Show specific user
 		public function show($id) {
 			$user = User::find($id);
 			return view('user/show', array(	'user'=>$user));
