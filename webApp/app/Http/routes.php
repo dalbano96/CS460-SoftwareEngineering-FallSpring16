@@ -62,12 +62,15 @@ Route::get('/users/checklist', function() {
 });
 
 // Lists each user and his/her program
-Route::get('/users', function() {
+/* Route::get('/users', function() {
 	$users = App\User::all();
 	foreach($users as $user) {
 		echo $user->name . " Program: " . $user->program->name  . "<br />";
 	}
-});
+}); */
+
+// Shows all users
+Route::get('/users', 'UserController@index');
 
 // Creates a session for routes in group
 Route::group(['middleware' => 'web'], function() {
@@ -80,7 +83,10 @@ Route::group(['middleware' => 'web'], function() {
 	Route::get('/home', 'HomeController@index');
 
 	// Show user profile, URL: /user/view/profile
-	Route::get('/user/profile/{id}', 'UserController@showProfile');
+	Route::get('/user/profile/{id}', 'UserController@show');
+
+	// Shows all users
+	Route::get('/users', 'UserController@index');
 
 	Route::auth();
 });

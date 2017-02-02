@@ -74,7 +74,7 @@
                             <label for="name" class="col-md-4 control-label">Select Program</label>
 
                             <div class="col-md-6">
-															<select name="program_id">
+															<select required name="program_id">
 																<option disabled selected value>Select Program</option>
 																<option value="3">Master of Arts in Counseling Psychology</option>
 																<option value="4">Doctor of Nursing Practice</option>

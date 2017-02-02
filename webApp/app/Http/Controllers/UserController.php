@@ -1,5 +1,9 @@
 <?php
 
+/**
+	App\Controller\UserController.php
+**/
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -25,8 +29,13 @@ class UserController extends Controller
 			}
 		} */
 
-		public function showProfile($id) {
+		public function index() {
+			$users = User::all();
+			return view('admin/index', array('users'=>$users));
+		}
+
+		public function show($id) {
 			$user = User::find($id);
-			return view('userProfile', array(	'user'=>$user));
+			return view('user/show', array(	'user'=>$user));
 		}
 }
