@@ -19,10 +19,12 @@
 			</thead>
 			<tbody>
 				@foreach($users as $user)
+				@if($user->is('student'))
 				<tr>
 				<td><a href="/user/profile/{{ $user->id }}">{{ $user->name }}</a></td>
 				<td>{{ $user->email }}</td>
 				</tr>
+				@endif
 				@endforeach
 			</tbody>
 		</table>
