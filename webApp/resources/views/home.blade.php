@@ -14,10 +14,10 @@
 									<h1 align="center"> Welcome {{ Auth::user()->name }}! </h1>
 									
 									@if($user->is('admin'))
-										<h1 align="center"><a class="btn btn-lg btn-info" href="{{ url('users') }}">View all users</a></h1>
+										<h1 align="center"><a class="btn btn-lg btn-info" href="{{ url('users') }}">View Student List</a></h1>
 						
 									@else
-										<h1 align="center"><a class="btn btn-lg btn-info" href="{{ url('/users/checklist') }}">View application status</a></h1>
+										<h1 align="center"><a class="btn btn-lg btn-info" href="/user/view/{{ Auth::user()->id }}">View application status</a></h1>
 									@endif
                 </div>
             </div>

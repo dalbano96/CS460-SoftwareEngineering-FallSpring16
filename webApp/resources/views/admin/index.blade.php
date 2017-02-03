@@ -5,16 +5,17 @@
 @section('title', 'Admin Dashboard')
 
 @section('content')
-<div class="jumbotron"></div>
-	<div class="container">
-		<h1>All users</h1>
-		
+<div class="container">
+<div class="jumbotron">
+		<h1 align="center">Student List</h1>
+</div>	
 		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>
 					<td>Name</td>
 					<td>Email</td>
 					<td>Program</td>
+					<td>Edit Profile</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,6 +32,5 @@
 			</tbody>
 		</table>
 
-	</div>
 </div>
 @endsection

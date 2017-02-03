@@ -82,7 +82,7 @@ Route::get('/user/create', 'UserController@create');
 // Edit the user
 Route::get('/user/edit/{id}', 'UserController@edit');
 
-Route::post('/users/edit/{id}', 'UserController@update');
+//Route::post('/users/edit/{id}', 'UserController@update');
 
 /***
 	End Admin Panel
@@ -105,5 +105,15 @@ Route::group(['middleware' => 'web'], function() {
 
 	// Shows all users
 	Route::get('/users', 'UserController@index');
+
+	
+	Route::get('/contact', function() {
+  	return view('contact');
+	});
+
+	Route::get('/support', function() {
+  	return view('support');
+	});
+
 });
 

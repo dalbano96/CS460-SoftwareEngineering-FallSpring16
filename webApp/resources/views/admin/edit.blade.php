@@ -7,21 +7,24 @@
 @section('content')
 <div class="container">
 <div class="jumbotron">
+	<h1 align="center">Edit {{ $user->name }}'s Profile</h1>
+</div>
 
-<h1>{{ $user->name }}</h1>
-<h2>{{ $user->email }}</h1>
+<h3>Current Name: {{ $user->name }}</h3>
 
 <form method="POST" action="">
 	<input type="hidden" name="_token" value="">
 	<input type="hidden" name="_method" value="PUT">
 	
 	<div class="form-group">
-		<label for="name">Name</label>
+		<label for="name">Change Name</label>
 		<input type="text" name="name" value="" class="form-control">
 	</div>
 
+	<h3>Current Email: {{ $user->email }}</h3>
+
 	<div class="form-group">
-		<label for="email">Email</label>
+		<label for="email">Change Email</label>
 		<input type="text" name="email" value="" class="form-control">
 	</div>	
 
@@ -30,7 +33,5 @@
 	</button>
 
 </form>
-
-</div>
 </div>
 @endsection

@@ -1,3 +1,5 @@
+<!-- layouts.app.php -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,10 +57,13 @@
 										<li><a href="#">Contact Us</a></li>
 								
 								@else
+								 		<?php $user = App\User::find(Auth::user()->id) ?>
 										<li><a href="/home">Home</a></li>
-                    <li><a href="{{ url('/users/checklist') }}">Application Status</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">Contact Us</a></li>
+								@if($user->is('student'))	
+                    <li><a href="/user/view/{{ Auth::user()->id }}">Application Status</a></li>
+                    <li><a href="{{ url('support') }}">Support</a></li>
+                    <li><a href="{{ url('contact') }}">Contact Us</a></li>
+								@endif
 								@endif
                 </ul>
 
@@ -75,8 +80,14 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-																<li><a href="/user/view/{{ Auth::user()->id }}"><i class="fa fa-btn"></i>View Profile</a></li>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+																@if($user->is('admin'))
+																	<li><a href="{{ url('users') }}"><i class="fa fa-btn"></i>View Student List</a></li>
+																	<li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+																@else
+																	<li><a href="/user/view/{{ Auth::user()->id }}"><i class="fa fa-btn"></i>View Profile</a></li>
+																	<li><a href="/user/edit/{{ Auth::user()->id }}"><i class="fa fa-btn"></i>Edit Profile</a></li>
+                                	<li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+																@endif
                             </ul>
                         </li>
                     @endif
