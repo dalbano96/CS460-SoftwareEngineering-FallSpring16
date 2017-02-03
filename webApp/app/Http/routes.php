@@ -69,8 +69,18 @@ Route::get('/users/checklist', function() {
 	}
 }); */
 
+
+/***
+	Admin Panel
+***/
 // Shows all users
 Route::get('/users', 'UserController@index');
+
+Route::get('/user'
+
+/***
+	End Admin Panel
+***/
 
 Route::auth();
 

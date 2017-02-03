@@ -23,6 +23,7 @@
 				<tr>
 				<td><a href="/user/profile/{{ $user->id }}">{{ $user->name }}</a></td>
 				<td>{{ $user->email }}</td>
+				<td>{{ $user->program->name }}</td>
 				</tr>
 				@endif
 				@endforeach
