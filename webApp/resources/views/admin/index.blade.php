@@ -20,7 +20,7 @@
 			</thead>
 			<tbody>
 				@foreach($users as $user)
-				@if($user->is('student'))
+				@if(!($user->is('admin')))
 				<tr>
 				<td><a href="/user/view/{{ $user->id }}">{{ $user->name }}</a></td>
 				<td>{{ $user->email }}</td>
