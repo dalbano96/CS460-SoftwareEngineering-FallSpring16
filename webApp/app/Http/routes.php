@@ -76,7 +76,13 @@ Route::get('/users/checklist', function() {
 // Shows all users
 Route::get('/users', 'UserController@index');
 
-Route::get('/user'
+// Create a user
+Route::get('/user/create', 'UserController@create');
+
+// Edit the user
+Route::get('/user/edit/{id}', 'UserController@edit');
+
+Route::post('/users/edit/{id}', 'UserController@update');
 
 /***
 	End Admin Panel
@@ -95,7 +101,7 @@ Route::group(['middleware' => 'web'], function() {
 	Route::get('/home', 'HomeController@index');
 
 	// Show user profile, URL: /user/view/profile
-	Route::get('/user/profile/{id}', 'UserController@show');
+	Route::get('/user/view/{id}', 'UserController@show');
 
 	// Shows all users
 	Route::get('/users', 'UserController@index');

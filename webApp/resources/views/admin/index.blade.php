@@ -21,9 +21,10 @@
 				@foreach($users as $user)
 				@if($user->is('student'))
 				<tr>
-				<td><a href="/user/profile/{{ $user->id }}">{{ $user->name }}</a></td>
+				<td><a href="/user/view/{{ $user->id }}">{{ $user->name }}</a></td>
 				<td>{{ $user->email }}</td>
 				<td>{{ $user->program->name }}</td>
+				<td><a class="btn btn-small btn-info" href="/user/edit/{{ $user->id }}">Edit</a></td>
 				</tr>
 				@endif
 				@endforeach

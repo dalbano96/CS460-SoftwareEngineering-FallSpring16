@@ -10,9 +10,12 @@
 		<h2>{{ $user->program->name }}</h2>
 		<h2>{{ $user->program->department->name }}</h2>
 
+		<!-- Relocate this file to application status page (pending) -->
 		<ul>
 		@foreach($user->requirements as $requirement)
 		<li>{{ $requirement->name }}</li>
+		<input type="file" />
+		<input type = "button" value="Upload" />  
 		</ul>
 		@endforeach
 	

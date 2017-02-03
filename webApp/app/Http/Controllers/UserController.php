@@ -38,11 +38,11 @@ class UserController extends Controller
 		// Show specific user
 		public function show($id) {
 			$user = User::find($id);
-			return view('user/show', array(	'user'=>$user));
+			return view('admin/show', array(	'user'=>$user));
 		}
 
 		public function create() {
-
+			return view('user/create');
 		}
 
 		public function store() {
@@ -51,12 +51,24 @@ class UserController extends Controller
 
 		// Work in progress
 		public function edit($id) {
-			$user = User::find($id);
-			return view('users/edit', array('user'=>$user));	
+			$user = User::findOrFail($id);
+			return view('admin/edit', array('user'=>$user));	
 		}
 
+		// Update called after edits made 
 		public function update($id) {
+			$rules = array(
+				'name' => 'required',
+				'email' => 'required|email'
+			);
 
+			$user = find($id);
+			$user->name = $request->get('name');
+			$user->email = $request->get('email');
+			$user->save();
+			
+			Session::flash('message','Successfully updated user');
+			return Redirect::to('users');
 		}
 
 		public function destroy($id) {

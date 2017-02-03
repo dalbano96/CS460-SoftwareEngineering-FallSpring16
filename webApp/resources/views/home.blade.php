@@ -1,4 +1,8 @@
+<!-- home.blade.php -->
+
 @extends('layouts.app')
+
+<?php $user = App\User::find( Auth::user()->id)  ?>
 
 @section('content')
 <div class="jumbotron">
@@ -7,9 +11,14 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-									<h1 align="center"> Welcome </h1>
-									<h1 align="center"><a class="btn btn-lg btn-info" href="{{ url('/users/checklist') }}">View application status</a></h1>
+									<h1 align="center"> Welcome {{ Auth::user()->name }}! </h1>
+									
+									@if($user->is('admin'))
+										<h1 align="center"><a class="btn btn-lg btn-info" href="{{ url('users') }}">View all users</a></h1>
+						
+									@else
+										<h1 align="center"><a class="btn btn-lg btn-info" href="{{ url('/users/checklist') }}">View application status</a></h1>
+									@endif
                 </div>
             </div>
         </div>
