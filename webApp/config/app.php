@@ -156,6 +156,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+	/*
+	 * Laraadmin Service Providers
+	 */
+	Dwij\Laraadmin\LAProvider::class,
+
     ],
 
     /*

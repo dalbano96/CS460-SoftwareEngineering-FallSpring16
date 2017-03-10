@@ -11,6 +11,8 @@
 |
 */
 
+/*
+
 // Displays all of the departments
 Route::get('/departments', function() {
 	$departments = App\Department::all();
@@ -36,6 +38,8 @@ Route::get('/programs', function() {
 });
 
 // Lists the requirements for each program, junction table
+
+/*
 Route::get('/programs/requirements', function() {
 	$programs = App\Program::all();
 	foreach($programs as $program) {
@@ -48,7 +52,12 @@ Route::get('/programs/requirements', function() {
 	}
 });
 
+*/
+
 // Lists the requirements for each user based on program, junction table
+
+/*
+
 Route::get('/users/checklist', function() {
 	$users = App\User::all();
 	foreach($users as $user) {
@@ -60,6 +69,8 @@ Route::get('/users/checklist', function() {
 		echo "</ul>";
 	}
 });
+
+*/
 
 // Lists each user and his/her program
 /* Route::get('/users', function() {
@@ -73,6 +84,7 @@ Route::get('/users/checklist', function() {
 /***
 	Admin Panel
 ***/
+/*
 // Shows all users
 Route::get('/users', 'UserController@index');
 
@@ -84,9 +96,13 @@ Route::get('/user/edit/{id}', 'UserController@edit');
 
 //Route::post('/users/edit/{id}', 'UserController@update');
 
+*/
+
 /***
 	End Admin Panel
 ***/
+
+/*
 
 Route::auth();
 
@@ -117,3 +133,8 @@ Route::group(['middleware' => 'web'], function() {
 
 });
 
+*/
+
+/* ================== Homepage + Admin Routes ================== */
+
+require __DIR__.'/admin_routes.php';
