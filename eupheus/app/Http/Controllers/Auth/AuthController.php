@@ -43,7 +43,7 @@ class AuthController extends Controller
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
     
-    public function showRegistrationForm()
+/*    public function showRegistrationForm()
     {
         $roleCount = Role::count();
 		if($roleCount != 0) {
