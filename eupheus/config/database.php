@@ -54,14 +54,14 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'dump_command_path' => '/opt/lampp/bin', // only the path, so without 'mysqldump' or 'pg_dump'
+            'dump_command_path' => '/usr/bin/', // only the path, so without 'mysqldump' or 'pg_dump'
             'dump_command_timeout' => 60 * 5, // 5 minute timeout
             'dump_using_single_transaction' => true, // perform dump using a single transaction
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'eupheus'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'raspberry'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',

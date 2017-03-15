@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'HST',
 
     /*
     |--------------------------------------------------------------------------
@@ -156,10 +156,15 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-	/*
-	 *	Laraadmin Service Providers...
-	 */
-	Dwij\Laraadmin\LAProvider::class,
+				/*
+				 *	Laraadmin Service Providers...
+				 */
+				Dwij\Laraadmin\LAProvider::class,
+
+				/*
+				 *	Spatie Service Providers...
+				 */
+				Spatie\Backup\BackupServiceProvider::class,
 
     ],
 
