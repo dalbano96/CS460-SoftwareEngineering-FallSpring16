@@ -23,9 +23,9 @@ if(\Dwij\Laraadmin\Helpers\LAHelper::laravel_ver() == 5.3) {
 }
 
 /* Route group for users */
-Route::group(['as' => $as, 'middleware' =>['auth', 'permission:STUDENT_PANEL']], function() {
+// Route::group(['as' => $as, 'middleware' =>['auth', 'permission:STUDENT_PANEL']], function() {
 	
-});
+
 
 /* Route group for admin */
 Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], function () {
@@ -80,4 +80,8 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	/* ================== Programs ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/programs', 'LA\ProgramsController');
 	Route::get(config('laraadmin.adminRoute') . '/program_dt_ajax', 'LA\ProgramsController@dtajax');
+
+	/* ================== Students ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/students', 'LA\StudentsController');
+	Route::get(config('laraadmin.adminRoute') . '/student_dt_ajax', 'LA\StudentsController@dtajax');
 });
