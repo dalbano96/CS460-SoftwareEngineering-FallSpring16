@@ -75,7 +75,7 @@
         <div class="flex-center position-ref full-height">
                 <div class="top-right links">
                     @if (!Auth::guest())
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/') }}">Home</a>
 												<a href="{{ url('/logout') }}">Sign out </a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
@@ -84,7 +84,7 @@
                 </div>
 
             <div class="content">
-                <div class="title m-b-md">IT'S A TRAP Project Eupheus</div>
+                <div class="title m-b-md">Project Eupheus</div>
 								<div class="jumbotron">
 									<h1>University of Hawai`i at Hilo</h1>
 									<h2>Graduate Division Office</h2>
