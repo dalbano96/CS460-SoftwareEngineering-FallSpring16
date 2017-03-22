@@ -84,4 +84,12 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	/* ================== Students ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/students', 'LA\StudentsController');
 	Route::get(config('laraadmin.adminRoute') . '/student_dt_ajax', 'LA\StudentsController@dtajax');
+
+	/* ================== Requirements ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/requirements', 'LA\RequirementsController');
+	Route::get(config('laraadmin.adminRoute') . '/requirement_dt_ajax', 'LA\RequirementsController@dtajax');
+
+	/* ================== Program_Requirements ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/program_requirements', 'LA\Program_RequirementsController');
+	Route::get(config('laraadmin.adminRoute') . '/program_requirement_dt_ajax', 'LA\Program_RequirementsController@dtajax');
 });
