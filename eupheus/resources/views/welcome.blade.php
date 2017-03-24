@@ -75,7 +75,7 @@
         <div class="flex-center position-ref full-height">
                 <div class="top-right links">
                     @if (!Auth::guest())
-                        <a href="{{ url('/') }}">Home</a>
+                        <a href="{{ url('/admin') }}">Home</a>
 												<a href="{{ url('/logout') }}">Sign out </a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
