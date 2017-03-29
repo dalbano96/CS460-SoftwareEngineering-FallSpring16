@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Models\Employee;
+use App\Models\Student;
 use App\Role;
 use Validator;
 use Eloquent;
@@ -105,7 +106,7 @@ class AuthController extends Controller
         // TODO: This is Not Standard. Need to find alternative
         Eloquent::unguard();
         
-        $employee = Employee::create([
+       /* $employee = Employee::create([
             'name' => $data['name'],
             'designation' => "Super Admin",
             'mobile' => "8888888888",
@@ -120,16 +121,24 @@ class AuthController extends Controller
             'date_hire' => date("Y-m-d"),
             'date_left' => date("Y-m-d"),
             'salary_cur' => 0,
-        ]);
+        ]); */
+				
+				$student = Student::create([
+					'name' => $data['name'],
+					'email' => $data['email'],
+					'gender' => $data['gender'],
+					'date_birth' => $data['date'],
+					'program' => $data['program_id'],
+				]);
         
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'context_id' => $employee->id,
-            'type' => "Employee",
+            'context_id' => $student->id,
+            'type' => "Student",
         ]);
-        $role = Role::where('name', 'SUPER_ADMIN')->first();
+        $role = Role::where('name', 'STUDENT')->first();
         $user->attachRole($role);
     
         return $user;
