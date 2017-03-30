@@ -26,7 +26,6 @@ class CreateStudentsTable extends Migration
             ["city", "City", "String", false, "", 0, 1000, false],
             ["address", "Address", "Address", false, "", 0, 1000, false],
             ["date_birth", "Date of Birth", "Date", false, "1990-01-01", 0, 0, false],
-            ["program", "Program", "Dropdown", false, "", 0, 0, false, "@programs"],
         ]);
 		
 		/*
