@@ -24,7 +24,7 @@ return [
     | 
     */
     'uploads' => [
-        'private_uploads' => false,
+        'private_uploads' => true,
         'default_public' => false,
         'allow_filename_change' => true,
     ],
