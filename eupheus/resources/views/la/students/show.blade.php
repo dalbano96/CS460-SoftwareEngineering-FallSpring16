@@ -115,6 +115,7 @@
 						@la_display($module, 'city')
 						@la_display($module, 'address')
 						@la_display($module, 'date_birth')
+						@la_display($module, 'program')
 					</div>
 				</div>
 			</div>

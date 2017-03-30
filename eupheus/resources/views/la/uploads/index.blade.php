@@ -109,7 +109,7 @@ $(function () {
 	@la_access("Uploads", "create")
 	fm_dropzone_main = new Dropzone("#fm_dropzone_main", {
         maxFilesize: 2,
-        acceptedFiles: "image/*,application/pdf",
+        acceptedFiles: "*",
         init: function() {
             this.on("complete", function(file) {
                 this.removeFile(file);
