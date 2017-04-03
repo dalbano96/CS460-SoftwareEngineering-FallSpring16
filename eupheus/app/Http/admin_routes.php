@@ -23,11 +23,6 @@ if(\Dwij\Laraadmin\Helpers\LAHelper::laravel_ver() == 5.3) {
 	Route::get('/logout', 'Auth\LoginController@logout');
 }
 
-/* Route group for users */
-// Route::group(['as' => $as, 'middleware' =>['auth', 'permission:STUDENT_PANEL']], function() {
-	
-
-
 /* Route group for admin */
 Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], function () {
 	

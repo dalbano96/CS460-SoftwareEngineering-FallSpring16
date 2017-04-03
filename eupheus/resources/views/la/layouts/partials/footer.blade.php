@@ -3,6 +3,6 @@
     <div class="pull-right hidden-xs">
         Powered by <a href="http://dwijitsolutions.com">Dwij IT Solutions</a>
     </div>
-    <strong>Copyright &copy; 2017 
+    <strong>Copyright &copy; 2017 University of Hawai`i at Hilo 
 </footer>
 @endif
