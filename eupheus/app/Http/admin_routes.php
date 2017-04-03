@@ -90,4 +90,6 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	/* ================== Students ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/students', 'LA\StudentsController');
 	Route::get(config('laraadmin.adminRoute') . '/student_dt_ajax', 'LA\StudentsController@dtajax');
+
+
 });
