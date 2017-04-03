@@ -80,8 +80,8 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 
 
 	/* ================== Program_Requirements ================== */
-	Route::resource(config('laraadmin.adminRoute') . '/program_requirements', 'LA\Program_RequirementsController');
-	Route::get(config('laraadmin.adminRoute') . '/program_requirement_dt_ajax', 'LA\Program_RequirementsController@dtajax');
+//	Route::resource(config('laraadmin.adminRoute') . '/program_requirements', 'LA\Program_RequirementsController');
+//	Route::get(config('laraadmin.adminRoute') . '/program_requirement_dt_ajax', 'LA\Program_RequirementsController@dtajax');
 
 	/* ================== Requirements ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/requirements', 'LA\RequirementsController');
