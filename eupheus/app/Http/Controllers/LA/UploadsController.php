@@ -144,7 +144,7 @@ class UploadsController extends Controller
     }
 
     /**
-     * Upload fiels via DropZone.js
+     * Upload files via DropZone.js
      *
      * @return \Illuminate\Http\Response
      */

@@ -17,13 +17,17 @@ use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
+use Dwij\Laraadmin\Helpers\LAHelper;
+
+use App\User;
 use App\Models\Student;
+use App\Role;
 
 class StudentsController extends Controller
 {
 	public $show_action = true;
 	public $view_col = 'name';
-	public $listing_cols = ['id', 'name', 'gender', 'mobile', 'mobile2', 'email', 'city', 'address', 'date_birth'];
+	public $listing_cols = ['id', 'name', 'gender', 'mobile', 'mobile2', 'email', 'city', 'address', 'date_birth', 'program', 'password'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
@@ -84,6 +88,24 @@ class StudentsController extends Controller
 			if ($validator->fails()) {
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
+
+			// generate password
+			$password = LAHelper::gen_password();
+
+			// create student
+			$insert_id = Module::insert("Students", $request);
+
+			// create user
+			$user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($password),
+            'context_id' => $insert_id,
+            'type' => "Student",
+        ]);
+        $role = Role::where('name', 'STUDENT')->first();
+        $user->attachRole($role);
+
 			
 			$insert_id = Module::insert("Students", $request);
 			

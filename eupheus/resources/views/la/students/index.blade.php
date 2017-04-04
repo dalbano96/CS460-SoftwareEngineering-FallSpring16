@@ -67,6 +67,8 @@
 					@la_input($module, 'city')
 					@la_input($module, 'address')
 					@la_input($module, 'date_birth')
+					@la_input($module, 'program')
+					@la_input($module, 'password')
 					--}}
 				</div>
 			</div>
