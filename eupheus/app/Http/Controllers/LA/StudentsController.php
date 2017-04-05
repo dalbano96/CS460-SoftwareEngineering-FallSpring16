@@ -17,7 +17,10 @@ use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
+use Dwij\Laraadmin\Helpers\LAHelper;
+
 use App\Models\Student;
+use App\User;
 use App\Role;
 
 class StudentsController extends Controller
@@ -86,8 +89,28 @@ class StudentsController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
 			
-			$insert_id = Module::insert("Students", $request);
+			// Generate password
+			$password = LAHelper::gen_password();
+
+			// Create student
+			$student_id = Module::insert("Students", $request);
+
+			// Create User
+			$user = User::create([
+				'name' => $request->name,
+				'email' => $request->email,
+				'password' => bcrypt($password),
+				'context_id' => $student_id,
+				'type' => "Student",
+			]);
+
+			// Update user role
+			$user->detachRoles();
+			$role = Role::find($request->role);
+			$user->attachRole($role);
 			
+			// Add email notification, use EmployeeController as reference
+	
 			return redirect()->route(config('laraadmin.adminRoute') . '.students.index');
 			
 		} else {

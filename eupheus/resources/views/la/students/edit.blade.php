@@ -34,10 +34,10 @@
 					
 					{{--
 					@la_input($module, 'name')
+					@la_input($module, 'email')
 					@la_input($module, 'gender')
 					@la_input($module, 'mobile')
 					@la_input($module, 'mobile2')
-					@la_input($module, 'email')
 					@la_input($module, 'city')
 					@la_input($module, 'address')
 					@la_input($module, 'date_birth')

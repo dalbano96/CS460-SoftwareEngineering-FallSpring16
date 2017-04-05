@@ -63,6 +63,8 @@
 					</div>
 					<div class="panel-body">
 						@la_display($module, 'name')
+						@la_display($module, 'email')
+						@la_display($module, 'type')
 					</div>
 				</div>
 			</div>
