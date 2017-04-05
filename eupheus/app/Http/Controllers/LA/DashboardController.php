@@ -35,6 +35,8 @@ class DashboardController extends Controller
     public function index()
     {
 				$requirements = DB::table('requirements')->get();
+				// $programs = DB::table('programs')->get();
+				// $users = DB::table('users')->get();
         return view('la.dashboard',['requirements' => $requirements]);
     }
 }
