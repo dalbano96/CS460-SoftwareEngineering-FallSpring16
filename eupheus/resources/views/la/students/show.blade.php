@@ -72,7 +72,6 @@
 						@la_display($module, 'address')
 						@la_display($module, 'date_birth')
 						@la_display($module, 'program')
-						@la_display($module, 'password')
 					</div>
 				</div>
 			</div>

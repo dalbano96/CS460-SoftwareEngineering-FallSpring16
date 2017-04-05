@@ -234,7 +234,23 @@ class UploadsController extends Controller
 			$uploads = array();
 	
 			// print_r(Auth::user()->roles);
-			if(Entrust::hasRole('SUPER_ADMIN')) {
+			
+			// student access start 
+			/*
+			if(Entrust::hasRole('STUDENT')) {
+				//$uploads = Upload::user()->id;
+				$uploads = Upload::all();
+			} else {
+        if(config('laraadmin.uploads.private_uploads')) {
+          $uploads = Auth::user()->uploads;
+        } else {
+          $uploads = Upload::all();
+        }
+      }
+			*/
+			// end of student access
+			
+		  if(Entrust::hasRole('SUPER_ADMIN')) {
 				$uploads = Upload::all();
 			} else {
 				if(config('laraadmin.uploads.private_uploads')) {
@@ -244,6 +260,7 @@ class UploadsController extends Controller
 					$uploads = Upload::all();
 				}
 			}
+			
 			$uploads2 = array();
 			foreach ($uploads as $upload) {
 				$u = (object) array();
@@ -274,6 +291,36 @@ class UploadsController extends Controller
 				'message' => "Unauthorized Access"
 			]);
 		}
+
+			      // student access start 
+			      
+      if(Entrust::hasRole('STUDENT')) {
+        $uploads = Upload::user()->id;
+        //$uploads = Upload::all();
+      } /*else {
+        if(config('laraadmin.uploads.private_uploads')) {
+          $uploads = Auth::user()->uploads;
+        } else {
+          $uploads = Upload::all();
+        }
+      }*/
+      
+			$uploads3 = array();
+      foreach ($uploads as $upload) {
+        $u = (object) array();
+        $u->user_id = $upload->user_id;
+        $u->name = $upload->name;
+        $u->extension = $upload->extension;
+        $u->hash = $upload->hash;
+        $u->public = $upload->public;
+        $u->caption = $upload->caption;
+        $u->user = $upload->user->name;
+
+        $uploads3[] = $u;
+			}
+			      return response()->json(['uploads' => $uploads3]);
+		
+      // end of student access
     }
 
     /**

@@ -42,7 +42,6 @@
 					@la_input($module, 'address')
 					@la_input($module, 'date_birth')
 					@la_input($module, 'program')
-					@la_input($module, 'password')
 					--}}
                     <br>
 					<div class="form-group">

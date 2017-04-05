@@ -23,7 +23,7 @@ class RequirementsController extends Controller
 {
 	public $show_action = true;
 	public $view_col = 'name';
-	public $listing_cols = ['id', 'name'];
+	public $listing_cols = ['id', 'name', 'status'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns

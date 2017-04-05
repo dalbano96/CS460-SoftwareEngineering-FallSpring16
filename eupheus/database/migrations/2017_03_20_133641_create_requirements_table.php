@@ -19,6 +19,7 @@ class CreateRequirementsTable extends Migration
     {
         Module::generate("Requirements", 'requirements', 'name', 'fa-check-square-o', [
             ["name", "Name", "String", false, "", 0, 256, false],
+            ["status", "Status", "Radio", false, "Incomplete", 0, 0, false, ["Complete","Incomplete"]],
         ]);
 		
 		/*
