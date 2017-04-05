@@ -106,7 +106,8 @@ class StudentsController extends Controller
 
 			// Update user role
 			$user->detachRoles();
-			$role = Role::find($request->role);
+			// $role = Role::find($request->role);
+			$role = Role::where('name', 'STUDENT')->first();
 			$user->attachRole($role);
 			
 			// Add email notification, use EmployeeController as reference

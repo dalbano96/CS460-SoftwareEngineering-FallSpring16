@@ -1,7 +1,7 @@
 @extends('la.layouts.app')
 
 @section('htmlheader_title')
-	employee View
+	Employee View
 @endsection
 
 
@@ -37,11 +37,11 @@
 			-->
 		</div>
 		<div class="col-md-1 actions">
-			@la_access("employees", "edit")
+			@la_access("Employees", "edit")
 				<a href="{{ url(config('laraadmin.adminRoute') . '/employees/'.$employee->id.'/edit') }}" class="btn btn-xs btn-edit btn-default"><i class="fa fa-pencil"></i></a><br>
 			@endla_access
 			
-			@la_access("employees", "delete")
+			@la_access("Employees", "delete")
 				{{ Form::open(['route' => [config('laraadmin.adminRoute') . '.employees.destroy', $employee->id], 'method' => 'delete', 'style'=>'display:inline']) }}
 					<button class="btn btn-default btn-delete btn-xs" type="submit"><i class="fa fa-times"></i></button>
 				{{ Form::close() }}
@@ -50,8 +50,9 @@
 	</div>
 
 	<ul data-toggle="ajax-tab" class="nav nav-tabs profile" role="tablist">
-		<li class=""><a href="{{ url(config('laraadmin.adminRoute') . '/employees') }}" data-toggle="tooltip" data-placement="right" title="Back to employees"><i class="fa fa-chevron-left"></i></a></li>
+		<li class=""><a href="{{ url(config('laraadmin.adminRoute') . '/employees') }}" data-toggle="tooltip" data-placement="right" title="Back to Employees"><i class="fa fa-chevron-left"></i></a></li>
 		<li class="active"><a role="tab" data-toggle="tab" class="active" href="#tab-general-info" data-target="#tab-info"><i class="fa fa-bars"></i> General Info</a></li>
+		<li class=""><a role="tab" data-toggle="tab" href="#tab-timeline" data-target="#tab-timeline"><i class="fa fa-clock-o"></i> Timeline</a></li>
 	</ul>
 
 	<div class="tab-content">
@@ -63,12 +64,18 @@
 					</div>
 					<div class="panel-body">
 						@la_display($module, 'name')
+						@la_display($module, 'gender')
+						@la_display($module, 'mobile')
+						@la_display($module, 'mobile2')
+						@la_display($module, 'email')
+						@la_display($module, 'dept')
+						@la_display($module, 'city')
+						@la_display($module, 'address')
+						@la_display($module, 'date_birth')
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	</div>
 	</div>
 </div>
 @endsection
