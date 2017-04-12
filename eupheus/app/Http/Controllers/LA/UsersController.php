@@ -18,6 +18,8 @@ use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
 use App\Models\User;
+use App\Models\Student;
+use App\Models\Employee;
 
 class UsersController extends Controller
 {
@@ -193,7 +195,9 @@ class UsersController extends Controller
 	public function destroy($id)
 	{
 		if(Module::hasAccess("Users", "delete")) {
-			User::find($id)->delete();
+			User::find($id)->forceDelete();
+			Student::find($id)->forceDelete();
+			Employee::find($id)->forceDelete();
 			
 			// Redirecting to index() method
 			return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
