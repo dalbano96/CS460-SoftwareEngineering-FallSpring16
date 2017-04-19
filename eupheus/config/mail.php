@@ -30,7 +30,7 @@ return [
     */
 
     // 'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-		'host' => env('MAIL_HOST', 'mailtrap.io'),
+		'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -44,7 +44,7 @@ return [
     */
 
     // 'port' => env('MAIL_PORT', 587),
-		'port' => env('MAIL_PORT', 2525),
+		'port' => env('MAIL_PORT', 587),
 
     /*
     |--------------------------------------------------------------------------
@@ -57,7 +57,8 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+		// 'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'albanoda@hawaii.edu', 'name' => 'Daryl Albano'],
 
     /*
     |--------------------------------------------------------------------------
