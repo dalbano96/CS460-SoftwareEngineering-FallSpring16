@@ -111,7 +111,16 @@ class StudentsController extends Controller
 			$role = Role::where('name', 'STUDENT')->first();
 			$user->attachRole($role);
 			
-			// Add email notification, use EmployeeController as reference
+			// Send email to user
+			if(env('MAIL_USERNAME') != null && env('MAIL_USERNAME') != "null" && env('MAIL_USERNAME') != "") {
+				// Send mail to User his Password
+				Mail::send('emails.send_login_cred', ['user' => $user, 'password' => $password], function ($m) use ($user) {
+					$m->from('hello@laraadmin.com', 'LaraAdmin');
+					$m->to($user->email, $user->name)->subject('LaraAdmin - Your Login Credentials');
+				});
+			} else {
+				Log::info("User created: username: ".$user->email." Password: ".$password);
+			}
 	
 			return redirect()->route(config('laraadmin.adminRoute') . '.students.index');
 			
