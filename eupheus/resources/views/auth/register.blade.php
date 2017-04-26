@@ -85,6 +85,15 @@
 									</select>
 								</div>-->
 
+								<div class="form-group has-feedback">
+									<select name="program_id" class="form-control">
+										<option disabled selected value>Select Program</option>
+										@foreach($programs as $program)
+										<option value={{ $program->id }}> {{ $program->name }} </option>
+										@endforeach
+									</select>
+								</div>
+
                 <div class="row">
                     <div class="col-xs-4">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
