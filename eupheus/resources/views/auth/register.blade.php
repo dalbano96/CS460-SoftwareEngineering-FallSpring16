@@ -69,7 +69,7 @@
 									<input type="date" class="form-control" placeholder="Date" name="date"/>
 								</div>
 
-								<div class="form-group has-feedback">
+								<!--<div class="form-group has-feedback">
               		<select name="program_id" class="form-control">
 										<option disabled selected value>Select Program</option>
 										<option value="1">Master of Arts in Counseling Psychology</option>
@@ -81,9 +81,9 @@
 										<option value="7">Master of Hawaiian Language</option>
 										<option value="8">MA Indigenous Language and Culture</option>
 										<option value="9">PhD Hawaiian Indigenous Language</option>
-										<option value="10">Kahuawaiola Indigenous Teacher Education</option>	
+										<option value="10">Kahuawaiola Indigenous Teacher Education</option>
 									</select>
-								</div>
+								</div>-->
 
                 <div class="row">
                     <div class="col-xs-4">

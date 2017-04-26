@@ -128,7 +128,7 @@ class AuthController extends Controller
 					'email' => $data['email'],
 					'gender' => $data['gender'],
 					'date_birth' => $data['date'],
-					'program' => $data['program_id'],
+					// 'program' => $data['program_id'],
 				]);
         
         $user = User::create([
