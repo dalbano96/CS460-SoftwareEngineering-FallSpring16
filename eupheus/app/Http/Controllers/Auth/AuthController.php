@@ -11,6 +11,7 @@ use Eloquent;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use DB;
 
 class AuthController extends Controller
 {
@@ -44,9 +45,9 @@ class AuthController extends Controller
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
     
-/*    public function showRegistrationForm()
+    public function showRegistrationForm()
     {
-        $roleCount = Role::count();
+     /*   $roleCount = Role::count();
 		if($roleCount != 0) {
 			$userCount = User::count();
 			if($userCount == 0) {
@@ -58,8 +59,11 @@ class AuthController extends Controller
 			return view('errors.error', [
 				'title' => 'Migration not completed',
 				'message' => 'Please run command <code>php artisan db:seed</code> to generate required table data.',
-			]);
-		}
+			]); 
+		} */
+		
+			$programs = DB::table('programs')->get();
+			return view('auth.register', ['programs' => $programs]);
     }
     
     public function showLoginForm()
@@ -68,7 +72,8 @@ class AuthController extends Controller
 		if($roleCount != 0) {
 			$userCount = User::count();
 			if($userCount == 0) {
-				return redirect('register');
+				$requirements = DB::table('requirements')->get();
+				return redirect('register',['requirements' => $requirements]);
 			} else {
 				return view('auth.login');
 			}

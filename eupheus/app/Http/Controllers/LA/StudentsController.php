@@ -230,7 +230,6 @@ class StudentsController extends Controller
 		if(Module::hasAccess("Students", "delete")) {
 			Student::find($id)->forceDelete();
 			User::find($id)->forceDelete();
-			Employee::find($id)->forceDelete();
 			
 			// Redirecting to index() method
 			return redirect()->route(config('laraadmin.adminRoute') . '.students.index');
