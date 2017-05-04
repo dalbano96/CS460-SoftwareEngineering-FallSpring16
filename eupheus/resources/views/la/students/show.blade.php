@@ -68,8 +68,9 @@
 						@la_display($module, 'mobile')
 						@la_display($module, 'mobile2')
 						@la_display($module, 'email')
-						@la_display($module, 'city')
 						@la_display($module, 'address')
+						@la_display($module, 'city')
+						@la_display($module, 'state')
 						@la_display($module, 'date_birth')
 						@la_display($module, 'program')
 					</div>

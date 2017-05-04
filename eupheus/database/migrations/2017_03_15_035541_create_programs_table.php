@@ -19,6 +19,9 @@ class CreateProgramsTable extends Migration
     {
         Module::generate("Programs", 'programs', 'name', 'fa-graduation-cap', [
             ["name", "Name", "String", false, "", 0, 256, false],
+            ["parent_dept", "Parent Department", "Dropdown", false, "", 0, 0, false, "@departments"],
+            ["requirements", "Requirements", "Multiselect", false, "", 0, 0, false, "@requirements"],
+            ["int_req", "International", "Integer", false, "1", 0, 10, false],
         ]);
 		
 		/*

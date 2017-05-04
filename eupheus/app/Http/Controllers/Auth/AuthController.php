@@ -111,29 +111,15 @@ class AuthController extends Controller
         // TODO: This is Not Standard. Need to find alternative
         Eloquent::unguard();
         
-       /* $employee = Employee::create([
-            'name' => $data['name'],
-            'designation' => "Super Admin",
-            'mobile' => "8888888888",
-            'mobile2' => "",
-            'email' => $data['email'],
-            'gender' => 'Male',
-            'dept' => "1",
-            'city' => "Pune",
-            'address' => "Karve nagar, Pune 411030",
-            'about' => "About user / biography",
-            'date_birth' => date("Y-m-d"),
-            'date_hire' => date("Y-m-d"),
-            'date_left' => date("Y-m-d"),
-            'salary_cur' => 0,
-        ]); */
-				
 				$student = Student::create([
 					'name' => $data['name'],
 					'email' => $data['email'],
 					'gender' => $data['gender'],
 					'date_birth' => $data['date'],
-					// 'program' => $data['program_id'],
+					'program' => $data['program_id'],
+					'address' => $data['address'],
+					'city' => $data['city'],
+					'state' => $data['state'],
 				]);
         
         $user = User::create([
