@@ -97,3 +97,5 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::resource(config('laraadmin.adminRoute') . '/support_topics', 'LA\Support_TopicsController');
 	Route::get(config('laraadmin.adminRoute') . '/support_topic_dt_ajax', 'LA\Support_TopicsController@dtajax');
 });
+
+
