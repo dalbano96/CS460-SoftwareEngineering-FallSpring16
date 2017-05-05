@@ -107,8 +107,7 @@ class StudentsController extends Controller
 
 			// Update user role
 			$user->detachRoles();
-			// $role = Role::find($request->role);
-			$role = Role::where('name', 'STUDENT')->first();
+			$role = Role::where('name', 'STUDENT')->FIRST();
 			$user->attachRole($role);
 			
 			// Send email to user
@@ -228,8 +227,9 @@ class StudentsController extends Controller
 	public function destroy($id)
 	{
 		if(Module::hasAccess("Students", "delete")) {
+			$temp_user = DB::table('users')->where('context_id', $id)->first();
 			Student::find($id)->forceDelete();
-			User::find($id)->forceDelete();
+			User::find($temp_user->id)->forceDelete();
 			
 			// Redirecting to index() method
 			return redirect()->route(config('laraadmin.adminRoute') . '.students.index');

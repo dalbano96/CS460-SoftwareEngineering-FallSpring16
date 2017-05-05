@@ -12,42 +12,6 @@
             <!-- Left col -->
             <section class="col-lg-7 connectedSortable">
 
-              <!-- TO DO List -->
-              <div class="box box-primary">
-                <div class="box-header">
-                  <i class="ion ion-clipboard"></i>
-                  <h3 class="box-title">To Do List</h3>
-                  <div class="box-tools pull-right">
-                  </div>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <ul class="todo-list">
-										@foreach($requirements as $requirement)
-                    <li>
-                      <!-- drag handle -->
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                      <!-- checkbox -->
-                      <input type="checkbox" value="" name="">
-                      <!-- todo text -->
-                      <span class="text">{{ $requirement->name }}</span>
-                      <!-- Emphasis label -->
-                      <!-- <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small> -->
-                      <!-- General tools such as edit or delete-->
-                      <div class="tools">
-                        <i class="fa fa-edit"></i>
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </li>
-										@endforeach
-                  </ul>
-                </div><!-- /.box-body -->
-                <div class="box-footer clearfix no-border">
-                </div>
-              </div><!-- /.box -->
-
               <!-- quick email widget -->
               <div class="box box-info">
                 <div class="box-header">

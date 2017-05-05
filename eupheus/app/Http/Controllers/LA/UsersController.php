@@ -197,14 +197,6 @@ class UsersController extends Controller
 		if(Module::hasAccess("Users", "delete")) {
 			User::find($id)->forceDelete();
 
-			if(Student::find($id)->exists()) {
-				Student::find($id)->forceDelete();
-			}
-
-			if(Employee::find($id)->exists()) {
-				Employee::find($id)->forceDelete();
-			}
-			
 			// Redirecting to index() method
 			return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
 		} else {

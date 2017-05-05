@@ -226,8 +226,9 @@ class EmployeesController extends Controller
 	public function destroy($id)
 	{
 		if(Module::hasAccess("Employees", "delete")) {
+			$temp_user = DB::table('users')->where('context_id',$id)->first();
 			Employee::find($id)->forceDelete();
-			User::find($id)->forceDelete();
+			User::find($temp_user->id)->forceDelete();
 			
 			// Redirecting to index() method
 			return redirect()->route(config('laraadmin.adminRoute') . '.employees.index');
