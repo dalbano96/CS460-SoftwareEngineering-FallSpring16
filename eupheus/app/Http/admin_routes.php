@@ -30,6 +30,7 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	
 	Route::get(config('laraadmin.adminRoute'), 'LA\DashboardController@index');
 	Route::get(config('laraadmin.adminRoute'). '/dashboard', 'LA\DashboardController@index');
+	Route::get(config('laraadmin.adminRoute'). '/dashboard', 'LA\DashboardController@sendEmail');
 	
 	/* ================== Users ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/users', 'LA\UsersController');
@@ -77,9 +78,6 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::resource(config('laraadmin.adminRoute') . '/programs', 'LA\ProgramsController');
 	Route::get(config('laraadmin.adminRoute') . '/program_dt_ajax', 'LA\ProgramsController@dtajax');
 
-
-
-
 	/* ================== Requirements ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/requirements', 'LA\RequirementsController');
 	Route::get(config('laraadmin.adminRoute') . '/requirement_dt_ajax', 'LA\RequirementsController@dtajax');
@@ -88,14 +86,7 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::resource(config('laraadmin.adminRoute') . '/students', 'LA\StudentsController');
 	Route::get(config('laraadmin.adminRoute') . '/student_dt_ajax', 'LA\StudentsController@dtajax');
 
-
-
-
-
-
 	/* ================== Support_Topics ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/support_topics', 'LA\Support_TopicsController');
 	Route::get(config('laraadmin.adminRoute') . '/support_topic_dt_ajax', 'LA\Support_TopicsController@dtajax');
 });
-
-

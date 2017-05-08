@@ -12,10 +12,11 @@
             <section class="col-lg-7 connectedSortable">
 
               <!-- quick email widget -->
+<!--							{{ Form::open(array('action'=> array('DashboardController@sendEmail', -->
               <div class="box box-info">
                 <div class="box-header">
                   <i class="fa fa-envelope"></i>
-                  <h3 class="box-title">Quick Email</h3>
+                  <h3 class="box-title">Send an email to the UHH Graduate Division Office</h3>
                   <!-- tools box -->
                   <div class="pull-right box-tools">
                     <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
@@ -23,9 +24,6 @@
                 </div>
                 <div class="box-body">
                   <form action="#" method="post">
-                    <div class="form-group">
-                      <input type="email" class="form-control" name="emailto" placeholder="Email to:">
-                    </div>
                     <div class="form-group">
                       <input type="text" class="form-control" name="subject" placeholder="Subject">
                     </div>
@@ -35,7 +33,7 @@
                   </form>
                 </div>
                 <div class="box-footer clearfix">
-                  <button class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>
+                  <a href="{{ action('LA\DashboardController@sendEmail') }}"<button class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button></a>
                 </div>
               </div>
 

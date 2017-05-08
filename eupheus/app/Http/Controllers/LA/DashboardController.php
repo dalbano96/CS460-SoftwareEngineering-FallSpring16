@@ -39,4 +39,13 @@ class DashboardController extends Controller
 				// $users = DB::table('users')->get();
         return view('la.dashboard',['requirements' => $requirements]);
     }
+
+		/**
+		 * Send email
+		 *
+		 *
+ 		 */
+		public function sendEmail(Request $request)
+		{
+		}
 }
