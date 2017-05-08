@@ -30,7 +30,7 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	
 	Route::get(config('laraadmin.adminRoute'), 'LA\DashboardController@index');
 	Route::get(config('laraadmin.adminRoute'). '/dashboard', 'LA\DashboardController@index');
-	Route::get(config('laraadmin.adminRoute'). '/dashboard', 'LA\DashboardController@sendEmail');
+	Route::patch(config('laraadmin.adminRoute'). '/dashboard/contact', 'LA\DashboardController@sendEmail');
 	
 	/* ================== Users ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/users', 'LA\UsersController');

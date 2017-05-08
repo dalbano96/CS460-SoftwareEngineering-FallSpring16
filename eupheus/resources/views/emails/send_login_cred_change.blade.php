@@ -7,4 +7,5 @@ password: {{ $password }}<br><br>
 
 You can login on <a href="{{ url('/login') }}">{{ str_replace("http://", "", url('/login')) }}</a>.<br><br>
 
-Best Regards,
+Aloha,
+Project Eupheus at the University of Hawaii at Hilo

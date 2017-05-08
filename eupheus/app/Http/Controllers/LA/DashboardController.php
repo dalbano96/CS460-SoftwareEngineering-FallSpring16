@@ -7,9 +7,23 @@
 namespace App\Http\Controllers\LA;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use Auth;
 use DB;
+use Validator;
+use Datatables;
+use Collective\Html\FormFacade as Form;
+use Dwij\Laraadmin\Models\Module;
+use Dwij\Laraadmin\Models\ModuleFields;
+
+use Dwij\Laraadmin\Helpers\LAHelper;
+
+use App\Models\Student;
+use App\User;
+use App\Role;
+use Mail;
+
 
 /**
  * Class DashboardController
@@ -47,5 +61,10 @@ class DashboardController extends Controller
  		 */
 		public function sendEmail(Request $request)
 		{
+			Mail::send('emails.contact', ['name'=>$request->get('name'), 'email'=> $request->get('email'), 'user_message' => $request->get('message')], function($message) {
+				$message->from('hilograd@hawaii.edu');
+				$message->to('hilograd@hawaii.edu', 'Project Eupheus - UH Hilo Graduate Division Office')->subject('Project Eupheus Inquiry');
+			});
+			return redirect(config('laraadmin.adminRoute')."/dashboard");
 		}
 }
