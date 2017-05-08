@@ -58,7 +58,7 @@ return [
     */
 
 		// 'from' => ['address' => null, 'name' => null],
-    'from' => ['address' => 'albanoda@hawaii.edu', 'name' => 'Daryl Albano'],
+    'from' => ['address' => 'hilograd@hawaii.edu', 'name' => 'Project Eupheus - UH Hilo Graduate Division Office'],
 
     /*
     |--------------------------------------------------------------------------

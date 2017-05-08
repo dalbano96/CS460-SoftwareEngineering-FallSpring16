@@ -20,9 +20,9 @@ use Dwij\Laraadmin\Models\ModuleFields;
 use Dwij\Laraadmin\Helpers\LAHelper;
 
 use App\Models\Student;
-use App\Models\Employee;
-use App\Models\User;
+use App\User;
 use App\Role;
+use Mail;
 
 class StudentsController extends Controller
 {
@@ -114,8 +114,8 @@ class StudentsController extends Controller
 			if(env('MAIL_USERNAME') != null && env('MAIL_USERNAME') != "null" && env('MAIL_USERNAME') != "") {
 				// Send mail to User his Password
 				Mail::send('emails.send_login_cred', ['user' => $user, 'password' => $password], function ($m) use ($user) {
-					$m->from('hello@laraadmin.com', 'LaraAdmin');
-					$m->to($user->email, $user->name)->subject('LaraAdmin - Your Login Credentials');
+					$m->from('hilograd@hawaii.edu', 'Project Eupheus - UH Hilo Graduate Division Office');
+					$m->to($user->email, $user->name)->subject('Project Eupheus - Your Login Credentials');
 				});
 			} else {
 				Log::info("User created: username: ".$user->email." Password: ".$password);

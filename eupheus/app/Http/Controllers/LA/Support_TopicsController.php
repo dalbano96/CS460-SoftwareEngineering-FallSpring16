@@ -23,7 +23,7 @@ class Support_TopicsController extends Controller
 {
 	public $show_action = true;
 	public $view_col = 'name';
-	public $listing_cols = ['id', 'name'];
+	public $listing_cols = ['id', 'name', 'questions'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
@@ -156,7 +156,8 @@ class Support_TopicsController extends Controller
 		}
 	}
 
-	/**
+	
+ /**
 	 * Update the specified support_topic in storage.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
